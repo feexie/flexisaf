@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Weekly Projects</h1>
+    <div class="buttons">
+        <button onclick="navigateTo('week-1')">Week 1</button>
+        <button onclick="navigateTo('week-2')">Week 2</button>
+        <button onclick="navigateTo('week-3')">Week 3</button>
+        <button onclick="navigateTo('week-4')">Week 4</button>
+        <!-- Add more weeks as needed -->
+    </div>
+    <script>
+        function navigateTo(week) {
+            window.location.href = `/${week}/index.html`;
+        }
+    </script>
+</body>
+</html>
