@@ -3,21 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 1</title>
+    <title>Week 1: Interactive JavaScript Features</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Week 1 Project</h1>
-    <div>
-        <p>Interact with the features for Week 1 below:</p>
-        <button onclick="exampleFunction()">Run Function</button>
-    </div>
-    <button onclick="goBack()">Back to Main Page</button>
+    <header>
+        <h1>Week 1: Interactive JavaScript Features</h1>
+    </header>
+    <main>
+        <!-- Scope Section -->
+        <section>
+            <h2>Scope: let and const</h2>
+            <button onclick="demonstrateScope()">Run Scope Demo</button>
+            <p id="scope-output"></p>
+        </section>
 
+        <!-- Arrow Functions -->
+        <section>
+            <h2>Arrow Functions</h2>
+                <p> this function takes two value for the opeartion a and b, by hitting the button multiply the arroww operation (Multiplication take place)</p>
+            <input type="number" id="multiply-a" placeholder="Enter first number">
+            <input type="number" id="multiply-b" placeholder="Enter second number">
+            <button onclick="runMultiply()">Multiply</button>
+            <p id="arrow-output"></p>
+        </section>
+
+        <!-- Array Operations -->
+        <section>
+            <h2>Array Operations</h2>
+            <p> this array function takes the input and perform a map operation while passing the value with parsefloat  </p>
+            <input type="text" id="array-input" placeholder="Enter numbers separated by commas">
+            <button onclick="processArray()">Process Array</button>
+            <div id="array-output"></div>
+        </section>
+
+        <!-- Object Operations -->
+        <section>
+            <h2>Object Operations</h2>
+            <button onclick="displayPerson()">Show Person Details</button>
+            <p id="object-output"></p>
+        </section>
+
+        <button onclick="goBack()">Back to Main Page</button>
+    </main>
     <script src="script.js"></script>
     <script>
         function goBack() {
-            window.location.href = '/index.html';
+            window.location.href = "/index.html";
         }
     </script>
 </body>
