@@ -1,7 +1,6 @@
-// GitHub API URL for repository details
 const repoApiUrl = 'https://api.github.com/repos/feexie/flexisaf';
 
-// Fetch data from GitHub repository to show live details
+// Fetch repository details
 function fetchRepoDetails() {
   fetch(repoApiUrl)
     .then(response => response.json())
@@ -14,33 +13,53 @@ function fetchRepoDetails() {
     .catch(err => console.error('Error fetching repo details:', err));
 }
 
-// Simulate Git commands
-function executeCommand(command) {
-  const consoleOutput = document.getElementById('console-output');
-  let output = `<code>$ ${command}</code>\n`;
+// Fetch pull requests
+function fetchPullRequests() {
+  fetch(`${repoApiUrl}/pulls`)
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('pull-requests-count').innerText = data.length;
+    })
+    .catch(err => console.error('Error fetching pull requests:', err));
+}
 
-  switch (command) {
-    case 'git init':
-      output += '> Initialized empty Git repository in /path/to/repo\n';
-      break;
-    case 'git clone https://github.com/feexie/flexisaf.git':
+// Fetch branches
+function fetchBranches() {
+  fetch(`${repoApiUrl}/branches`)
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('branches-count').innerText = data.length;
+    })
+    .catch(err => console.error('Error fetching branches:', err));
+}
 
-      output += '> Cloning into \'flexisaf\'...\n> Repository cloned successfully\n';
-      break;
-    case 'git branch new-feature':
-      output += '> Created new branch "new-feature"\n';
-      break;
-    case 'git commit -m "Initial commit"':
-      output += '> [main (root-commit) 123abc4] Initial commit\n> 1 file changed, 1 insertion(+), 0 deletions(-)\n';
-      break;
-    case 'git push origin main':
-      output += '> Everything up-to-date\n';
-      break;
-    default:
-      output += '> Command not recognized\n';
-  }
+// Fetch commits
+function fetchCommits() {
+  fetch(`${repoApiUrl}/commits`)
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('commits-count').innerText = data.length;
+    })
+    .catch(err => console.error('Error fetching commits:', err));
+}
 
-  consoleOutput.innerHTML = `<pre>${output}</pre>`;
+// Fetch revert status (last commit revert)
+function fetchRevert() {
+  fetch(`${repoApiUrl}/commits`)
+    .then(response => response.json())
+    .then(data => {
+      const lastCommitSha = data[0].sha;
+      fetch(`${repoApiUrl}/git/commits/${lastCommitSha}`)
+        .then(response => response.json())
+        .then(commitData => {
+          if (commitData.parents.length > 1) {
+            document.getElementById('revert-status').innerText = 'Revert available for this commit.';
+          } else {
+            document.getElementById('revert-status').innerText = 'No revert possible for this commit.';
+          }
+        });
+    })
+    .catch(err => console.error('Error fetching revert status:', err));
 }
 
 // Call fetchRepoDetails on page load

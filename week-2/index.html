@@ -14,31 +14,60 @@
       <p>Learn Git with interactive commands!</p>
     </header>
 
+    <!-- Project Description Section -->
+    <section id="project-description">
+      <h2>About the Project</h2>
+      <p>
+        This project demonstrates the usage of Git for version control, including commands such as <code>git init</code>, <code>git branch</code>, <code>git commit</code>, <code>git push</code>, and <code>git revert</code>.
+        Explore the GitHub repository for more details and the source code.
+      </p>
+      <p><strong>GitHub Repository: </strong>
+        <a href="https://github.com/feexie/flexisaf" target="_blank">Visit the GitHub Repository</a>
+      </p>
+    </section>
+
+    <!-- Repository Info Section -->
     <section id="repo-info">
       <h2>Your GitHub Repo Info</h2>
       <div id="repo-details">
         <p><strong>Repository Name:</strong> <span id="repo-name">Loading...</span></p>
-        <p><strong>Branches:</strong> <span id="branches-count">0</span></p>
-        <p><strong>Commits:</strong> <span id="commits-count">0</span></p>
-        <p><strong>Active Contributors:</strong> <span id="contributors-count">0</span></p>
+        <p><strong>Branches:</strong> <span id="branches-count">Loading...</span></p>
+        <p><strong>Commits:</strong> <span id="commits-count">Loading...</span></p>
+        <p><strong>Active Contributors:</strong> <span id="contributors-count">Loading...</span></p>
       </div>
     </section>
 
-    <section id="git-commands">
-      <h2>Git Commands</h2>
-      <p>Learn about Git operations by clicking on the buttons below.</p>
+    <!-- Git Concepts and Interactive Buttons -->
+    <section id="git-concepts">
+      <h2>Explore Git Concepts</h2>
+      <p>Click the buttons below to learn about Git concepts and see live data from the repository.</p>
 
-      <div class="command-section">
-        <button onclick="executeCommand('git init')">Try: git init</button>
-        <button onclick="executeCommand('git clone https://github.com/feexie/flexisaf.git')">Try: git clone</button>
-        <button onclick="executeCommand('git branch new-feature')">Try: git branch</button>
-        <button onclick="executeCommand('git commit -m \'Initial commit\'')">Try: git commit</button>
-        <button onclick="executeCommand('git push origin main')">Try: git push</button>
+      <!-- Pull Requests Button -->
+      <div class="concept-section">
+        <button onclick="fetchPullRequests()">Pull Requests</button>
+        <p id="pull-requests-description">Pull requests allow developers to collaborate on changes before merging them into the main branch.</p>
+        <p><strong>Number of Pull Requests:</strong> <span id="pull-requests-count">Loading...</span></p>
       </div>
 
-      <div id="console-output">
-        <pre><code>$ git init
-> Initialized empty Git repository</code></pre>
+      <!-- Branches Button -->
+      <div class="concept-section">
+        <button onclick="fetchBranches()">Branches</button>
+        <p id="branches-description">Branches let you work on features independently without affecting the main codebase.</p>
+        <p><strong>Number of Branches:</strong> <span id="branches-count">Loading...</span></p>
+      </div>
+
+      <!-- Commits Button -->
+      <div class="concept-section">
+        <button onclick="fetchCommits()">Commits</button>
+        <p id="commits-description">Commits save changes to the repository, keeping track of the project's history.</p>
+        <p><strong>Number of Commits:</strong> <span id="commits-count">Loading...</span></p>
+      </div>
+
+      <!-- Revert Button -->
+      <div class="concept-section">
+        <button onclick="fetchRevert()">Revert Commit</button>
+        <p id="revert-description">Reverting a commit undoes changes introduced by the commit and allows you to safely roll back code changes.</p>
+        <p><strong>Revert Status:</strong> <span id="revert-status">Loading...</span></p>
       </div>
     </section>
 
