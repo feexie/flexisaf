@@ -1,7 +1,3 @@
-Here's an updated and comprehensive **README.md** tailored to your internship curriculum, with all the weekly objectives clearly outlined:
-
----
-
 # FlexiSAF Advanced Frontend Development Internship
 
 ## Overview
