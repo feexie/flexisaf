@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Git Commands</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Git Version Control - Week 2</h1>
+      <p>Learn Git with interactive commands!</p>
+    </header>
+
+    <section id="repo-info">
+      <h2>Your GitHub Repo Info</h2>
+      <div id="repo-details">
+        <p><strong>Repository Name:</strong> <span id="repo-name">Loading...</span></p>
+        <p><strong>Branches:</strong> <span id="branches-count">0</span></p>
+        <p><strong>Commits:</strong> <span id="commits-count">0</span></p>
+        <p><strong>Active Contributors:</strong> <span id="contributors-count">0</span></p>
+      </div>
+    </section>
+
+    <section id="git-commands">
+      <h2>Git Commands</h2>
+      <p>Learn about Git operations by clicking on the buttons below.</p>
+
+      <div class="command-section">
+        <button onclick="executeCommand('git init')">Try: git init</button>
+        <button onclick="executeCommand('git clone https://github.com/feexie/flexisaf.git')">Try: git clone</button>
+        <button onclick="executeCommand('git branch new-feature')">Try: git branch</button>
+        <button onclick="executeCommand('git commit -m \'Initial commit\'')">Try: git commit</button>
+        <button onclick="executeCommand('git push origin main')">Try: git push</button>
+      </div>
+
+      <div id="console-output">
+        <pre><code>$ git init
+> Initialized empty Git repository</code></pre>
+      </div>
+    </section>
+
+    <footer>
+      <p>Powered by <a href="https://github.com/feexie/flexisaf" target="_blank">GitHub Repository</a></p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
