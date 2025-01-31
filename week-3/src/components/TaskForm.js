@@ -5,20 +5,21 @@ const TaskForm = ({ onAdd }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!taskName) return;
-        onAdd(taskName);
-        setTaskName('');
+        if (taskName.trim()) {
+            onAdd(taskName);
+            setTaskName('');
+        }
     };
 
     return (
-        <form className="task-form" onSubmit={handleSubmit}>
-            <input 
-                type="text" 
-                value={taskName} 
-                onChange={(e) => setTaskName(e.target.value)} 
-                placeholder="Add a new task" 
+        <form onSubmit={handleSubmit}>
+            <input
+                type="text"
+                value={taskName}
+                onChange={(e) => setTaskName(e.target.value)}
+                placeholder="Add a new task"
             />
-            <button type="submit">Add</button>
+            <button type="submit">Add Task</button>
         </form>
     );
 };

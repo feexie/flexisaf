@@ -1,13 +1,20 @@
 import React from 'react';
-import Task from './Task';
 
 const TaskList = ({ tasks, onRemove, onToggle }) => {
     return (
-        <div className="task-list">
+        <ul>
             {tasks.map(task => (
-                <Task key={task.id} task={task} onRemove={onRemove} onToggle={onToggle} />
+                <li key={task.id}>
+                    <span
+                        style={{ textDecoration: task.completed ? 'line-through' : 'none' }}
+                        onClick={() => onToggle(task.id)}
+                    >
+                        {task.name}
+                    </span>
+                    <button onClick={() => onRemove(task.id)}>Remove</button>
+                </li>
             ))}
-        </div>
+        </ul>
     );
 };
 
